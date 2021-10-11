@@ -1,0 +1,34 @@
+#!/bin/bash
+
+echo
+echo "-------------------------Main Menu-------------------------------"
+PS3=$'\nWelcome. Please choose one of the following: '
+options=($\n Add a new recording of a species" "Remove an existing species record" "Search for species" "Email recorder(s)" "Quit")
+select opt in "${options[@]}"
+do
+	case $opt in
+		"Add a new recording of a species")
+			./add.sh
+			;;
+
+		"Remove an existing species record")
+			./remove.sh
+			;;
+
+		"Search for species")
+			./search.sh
+			;;
+
+		"Email recorder(s)")
+			./email.sh
+			;;
+
+		"Quit")
+			echo "Good bye!"
+			break
+			exit
+			;;
+
+		*) echo "Invalid option. Please enter a number 1-5";;
+	esac
+done
