@@ -28,7 +28,7 @@ do
                 "Search by species name")
                         echo "Please enter species name: "
                         read name
-                        searchNumber=`grep -c $name speciesDetails.txt` 
+                        searchNumber=`grep -c -i $name speciesDetails.txt` 
                         if [ $? -eq 1 ];
                         then
                                 echo "No species found"
@@ -37,10 +37,10 @@ do
 				if [ $searchNumber -lt 2 ]
 				then
                                 	echo "There is" $searchNumber "record of that species"
-					grep -n $name speciesDetails.txt
+					grep -n -i $name speciesDetails.txt
                                 else
 					echo "There are" $searchNumber "records of that species"
-					grep -n $name speciesDetails.txt | awk '{print $1 $2}'
+					grep -n -i $name speciesDetails.txt | awk '{print $1 $2}'
 				fi
 				echo "Would you like to search further (y/n)?"
               	                read decision

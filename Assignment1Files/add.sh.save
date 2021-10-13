@@ -5,26 +5,21 @@ while [ $count -lt 4 ]
 do
 	if [ $count -eq 0 ]
 	then
-		count4=0
-		while [ $count4 -lt 1 ]
-		do
-			echo $'\nPlease enter species name: '
-			read name
-			if ! [ -z "${name}" ]
-			then
-				count=$((count+1))
-				count4=$((count4+1))
-			else
-				echo $'\nWarning: You cannot enter a blank name'
-			fi
-		done
+		echo $"\nPlease enter species name: "
+		read name
+		if ! [ -z "${name}" ]
+		then
+			count=$((count+1))
+		else
+			echo $"\nWarning: You cannot enter a blank name"
+		fi
 	fi
 	if [ $count -eq 1 ]
 	then
 		count2=0
 		while [ $count2 -lt 1 ]
 		do
-			echo $'\nPlease enter species location using an Eir Code: '
+			echo $"\nPlease enter species location using an Eir Code: "
 			read location
 			valid='[a-zA-Z][0-9][0-9][0-9a-zA-Z]{4}'
 				if [[ $location =~ $valid ]]
@@ -32,7 +27,7 @@ do
 					count=$((count+1))
 					count2=$((count2+1))
 				else 
-					echo $'\nPlease enter a correct format Eir Code (e.g. A11XXXX)'
+					echo $"\nPlease enter a correct format Eir Code (e.g. A11XXXX)"
 				fi
 		done
 	fi
@@ -46,7 +41,7 @@ do
 		count3=0
 		while [ $count3 -lt 1 ]
 		do
-			echo $'\nPlease enter your email: '
+			echo $"\nPlease enter your email: "
 			read email
 			valid2="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$"
 			if [[ $email =~ $valid2 ]]
@@ -54,28 +49,28 @@ do
 				count=$((count+1))
 				count3=$((count3+1))
 			else
-				echo $'\nPlease enter a correct email format (e.g. text@text.com)'
+				echo $"\nPlease enter a correct email format (e.g. text@text.com)"
 			fi
 		done
 	fi
 	echo ""
-	echo $'-------------Entered Data--------------\n'
+	echo $"-------------Entered Data--------------\n"
 	echo $name "; " $location "; " $date "; " $email ";"
-	echo $'\n---------------------------------------'
+	echo $"\n---------------------------------------"
 	echo ""
-	echo -n "Are you sure you want to add this record (y/n): "
+	echo -n "Are you sure you wnat to add this record (y/n): "
 	read answer
 	if [[ "$answer" == "y" || "$answer" == "Y" ]]
 	then
-		echo $'\n------------------------\n'
+		echo $"\n------------------------\n"
 		echo $name "; " $location "; " $date "; " $email ";" "added successfully"
-		echo $'\n-----------------------'
+		echo $"\n-----------------------"
 		echo $name "; " $location "; " $date "; " $email ";" >> speciesDetails.txt
 	else
-		echo $'\nRecord has not been added'
+		echo $"\nRecord has not been added"
 	fi
 	echo
-	echo $'\nWould you like to add another record [y/n]?'
+	echo $"\nWould you like to add another record [y/n]?"
 	read answer
 	case $answer in 
 		[yY])
