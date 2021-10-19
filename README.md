@@ -1,2 +1,9 @@
-# speciesDetails
+# Biodiversity Log
 Computer Systems and Networks Individual Shell Programming Assignment
+The Biodiversity Log allows users to introduce records about species they identify, including information on the species name, location of identification, date of recording, and email of recorder. 
+The main menu navigates the user to the different functions of the log, including the ability to add new records, remove existing records, search species, and email recorders. 
+Within the add new record function, the user will be asked for the species name, location (which must be inputted in Eir Code format, e.g. H91ABCD), and email. The date of recording will be inputted automatically. The user will then be asked if they want to keep the record and it will be stored. 
+The remove function will allow users to view all records and select the lines they want to remove, or seach by specific species, locations, or emails and select the lines they want to remove. Additionally, the user can have the option of deleting all records at once. 
+The search function allows the user to see a list of all the species within the log, listed in alphabetical order (without dublicates). From here users can search for individual species, to see full records (if there is only one record for a species) or numbers and locations (if there are more than one record for a species). 
+The email function will allow the user to see all emails of recorders and select those they want to email, search for a specific email and email that recorder, search for all emails related to a particualr species and select the recorders they would like to email, or email all recorders within the system.
+The programme is accessed from the command prompt "./menu". At all times the user can navigate back to the main menu through menu selection, or exit the programme through Ctrl+Z.
