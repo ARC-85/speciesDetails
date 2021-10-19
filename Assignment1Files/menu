@@ -1,35 +1,40 @@
 #!/bin/bash
 
-echo
-echo "-------------------------Main Menu-------------------------------"
-PS3=$'\nWelcome. Please choose one of the above options (number 1-5): '
+echo $'\n********************************************************************'
+echo $'\n-------------------------Main Menu-------------------------------\n' #main menu header
+echo $'********************************************************************'
+PS3=$'\nWelcome to the biodiversity recording tool. Please choose one of the above options (number 1-5): ' #PS3 menu used to select options
 echo $'\n'
-options=($'Add a new recording of a species' $'Remove an existing species record' $'Search for species' $'Email recorder(s)' $'Quit')
+options=($'Add a new recording of a species' $'Remove an existing species record' $'Search for species' $'Email recorder(s)' $'Quit') #options available
 select choice in "${options[@]}"
 do
-        case $choice in
+        case $choice in #listing cases
                 "Add a new recording of a species")
-                        ./add.sh
+                        ./add.sh #brings to add menu
+			break
                         ;;
 
                 "Remove an existing species record")
-                        ./remove.sh
-                        ;;
+                        ./remove.sh #brings to remove menu
+                        break
+			;;
 
                 "Search for species")
-                        ./search.sh
-                        ;;
+                        ./search.sh #brings to search menu
+                        break
+			;;
 
                 "Email recorder(s)")
-                        ./email.sh
-                        ;;
+                        ./email.sh #brings to email menu
+                        break
+			;;
 
                 "Quit")
-                        echo "Good bye!"
+                        echo $'\nGood bye!\n'
+			echo $'---------------'
                         break
-                        exit
+                        exit #quits the programme
                         ;;
-
-                *) echo "Invalid option. Please enter a number 1-5";;
+                *) echo $'\nInvalid option. Please enter a number 1-5\n';; #catches errors in user entry
         esac
 done
