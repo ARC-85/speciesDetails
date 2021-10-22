@@ -57,12 +57,12 @@ do
 									;;
                         				esac
 							count=$((count+1)) #count progresses based on valid user input
+							break
 						else
 							echo ""
 							echo "Please make sure you use the correct number format for recorder emails you would like to email (use \"1 2 3 etc\")" '\n'
 						fi
 					done
-					./email #return to email shell
 					break
 					;;
 				[nN] ) #if no (big or small n)
@@ -141,7 +141,7 @@ do
                                         echo $'\nThere are' $searchNumber $'records related to that email address\n'
                                         grep -n -i $speciesname speciesDetails.txt #display list of matching records, not case sensitive
                                 fi
-                                echo $'\nWould you like to email all recorders for $speciesname records (y/n)?'
+                                echo $'\nWould you like to email all recorders for' $speciesname $'records (y/n)?'
                                 read decision #checks whether the user wants to email all records related to a species, assigns variable to decision
                                 case $decision in
                                         [yY] ) #if yes (big or small y)
